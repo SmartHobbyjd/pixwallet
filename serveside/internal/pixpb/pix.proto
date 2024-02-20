@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package pixpb;
+
+option go_package = "pixpb/pixpb";
+
+// Service definition
+service PixService {
+  rpc SendPix (SendPixRequest) returns (SendPixResponse);
+}
+
+// Request message for sending Pix
+message SendPixRequest {
+  string amount = 1;
+  string recipient = 2;
+}
+
+// Response message for sending Pix
+message SendPixResponse {
+  string transaction_id = 1;
+  string amount = 2;
+  string recipient = 3;
+  string status = 4;
+  string timestamp = 5;
+}
